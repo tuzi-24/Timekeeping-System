@@ -1,6 +1,0 @@
-D:\App Ngôn ngữ lập trình\App\Entity\bin\Debug\Entity.dll
-D:\App Ngôn ngữ lập trình\App\Entity\bin\Debug\Entity.pdb
-D:\App Ngôn ngữ lập trình\App\Entity\obj\Debug\Entity.csproj.AssemblyReference.cache
-D:\App Ngôn ngữ lập trình\App\Entity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
-D:\App Ngôn ngữ lập trình\App\Entity\obj\Debug\Entity.dll
-D:\App Ngôn ngữ lập trình\App\Entity\obj\Debug\Entity.pdb
