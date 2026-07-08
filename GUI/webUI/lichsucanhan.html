@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch Sử Cá Nhân</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="style-base.css">
+    <link rel="stylesheet" href="style-auth.css">
+    <link rel="stylesheet" href="style-dashboard.css">
+</head>
+<body>
+    
+    <div class="dashboard-container">
+
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i class="fa-solid fa-fingerprint"></i>
+                <span>HR TIMEKEEPING</span>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <!-- 4 mục cơ bản - hiển thị cho mọi quyền -->
+                <li class="menu-item">
+                    <a onclick="window.location.href='https://app.assets/trangchu.html'">
+                        <i class="fa-solid fa-chart-pie"></i> Trang tổng quan
+                    </a>
+                </li>
+                
+                <li class="menu-item active">
+                    <a onclick="window.location.href='https://app.assets/lichsucanhan.html'">
+                        <i class="fa-solid fa-clock-rotate-left"></i> Lịch sử cá nhân
+                    </a>
+                </li>
+
+                <!-- Mục quản lý - ẩn mặc định, hiện khi quyền <= 3 -->
+                <li class="menu-item menu-manager-only" style="display:none;">
+                    <a onclick="window.location.href='https://app.assets/danhsachnv.html'">
+                        <i class="fa-solid fa-users"></i> Danh sách nhân viên
+                    </a>
+                </li>
+
+                <li class="menu-item menu-manager-only" style="display:none;">
+                    <a onclick="window.location.href='https://app.assets/xemtoanbo.html'">
+                        <i class="fa-solid fa-calendar-days"></i> Xem toàn bộ công
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a onclick="window.location.href='https://app.assets/kyhieu.html'">
+                        <i class="fa-solid fa-tags"></i> Bảng ký hiệu công
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a onclick="window.location.href='https://app.assets/doimatkhau.html'">
+                        <i class="fa-solid fa-key"></i> Đổi mật khẩu
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <button class="btn-secondary" id="btnDangXuat" style="padding: 10px; margin: 0;">
+                    <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            
+            <div class="content-header">
+                <div class="user-welcome">
+                    <h1>Chi Tiết Chấm Công</h1>
+                    <p>Tra cứu chi tiết thông tin đi muộn, về sớm và thời gian làm thêm (OT) cá nhân.</p>
+                </div>
+            </div>
+
+            <div class="filter-bar">
+                <div class="filter-left">
+                    <div class="filter-group">
+                        <label><i class="fa-solid fa-calendar-days" style="color: #0078d4;"></i> Chọn Tháng:</label>
+                        <select id="selectThang" class="form-select" style="padding: 6px 12px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; min-width: 120px;"></select>
+                    </div>
+                    <div class="filter-group" style="margin-left: 15px;">
+                        <label><i class="fa-solid fa-calendar" style="color: #0078d4;"></i> Chọn Năm:</label>
+                        <select id="selectNam" class="form-select" style="padding: 6px 12px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; min-width: 120px;"></select>
+                    </div>
+                </div>
+                <div class="filter-right">
+                    <button id="btnLocDuLieu" class="btn-submit" onclick="taiLichSuCongChiTiet()"><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm</button>
+                </div>
+            </div>
+
+            <div class="data-section">
+                <div class="section-title">Nhật ký dữ liệu thao tác cá nhân</div>
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Ngày thực hiện</th>
+                            <th>Giờ Vào</th>
+                            <th>Giờ Ra</th>
+                            <th>Đi Muộn</th>
+                            <th>Về Sớm</th>
+                            <th>Tăng Ca (OT)</th>
+                            <th>Ký Hiệu</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableChiTietCong">
+                        <tr>
+                            <td colspan="7" style="text-align:center;color:#888;padding:20px;">Đang tải dữ liệu...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="script.js"></script>
+    <script src="lichsucanhan.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng Tổng Hợp Công Toàn Hệ Thống</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style-base.css">
+    <link rel="stylesheet" href="style-auth.css">
+    <link rel="stylesheet" href="style-dashboard.css">
+</head>
+<body>
+    
+    <div class="pivot-container-fluid" style="position: relative; z-index: 1;">
+        
+        <header class="header-wrapper">
+            <div class="header-title">
+                <h1 id="lblTieuDeXemCong">Bảng Công Toàn Công Ty</h1>
+                <p id="lblMoTaXemCong">Hệ thống tổng hợp toàn bộ lịch sử ngày công phòng ban nhân sự.</p>
+            </div>
+            <button id="btnQuayLaiTrangChu" class="btn-back-home">
+                <i class="fa-solid fa-house"></i> Về trang chủ
+            </button>
+        </header>
+
+        <section class="filter-bar">
+            <div class="filter-left">
+                <div class="filter-group">
+                    <label>Tháng:</label>
+                    <select id="selectThang" class="form-select"></select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Năm:</label>
+                    <select id="selectNam" class="form-select"></select>
+                </div>
+
+                <div id="divGropPhongBan" class="filter-group" style="display: none;">
+                    <label>Phòng ban:</label>
+                    <select id="selectPhongBan" class="form-select" style="min-width: 200px;"></select>
+                </div>
+
+                <button id="btnLocToanBo" class="btn-submit">
+                    <i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm
+                </button>
+            </div>
+
+            <div class="filter-right">
+                <div class="search-container">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="txtTimKiemNhanVien" class="input-search" placeholder="Tìm theo Mã hoặc Tên nhân viên...">
+                </div>
+                
+                <button id="btnXemBieuDo" class="btn-chart-view" style="background-color: #7c3aed; color: white; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight: 500; margin-right: 8px; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s;">
+                    <i class="fa-solid fa-chart-pie"></i> Xem bảng biểu mức độ
+                </button>
+
+                <button id="btnXuatExcel" class="btn-export-excel">
+                    <i class="fa-solid fa-file-excel"></i> Xuất file Excel
+                </button>
+            </div>
+        </section>
+
+        <section class="table-scroll-area">
+            <table id="mainTablePivot" class="pivot-table">
+                <thead>
+                    </thead>
+                <tbody id="tableToanBoCong">
+                    <tr>
+                        <td style="padding: 30px; color: #718096;">Đang tải cấu trúc lưới dữ liệu hệ thống...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="xemtoanbo.js"></script>
+</body>
+</html>

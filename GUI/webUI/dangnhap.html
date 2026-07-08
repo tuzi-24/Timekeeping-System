@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập Hệ Thống</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="style-base.css">
+    <link rel="stylesheet" href="style-auth.css">
+</head>
+<body>
+   
+    <div class="form-container">
+        <h2>Đăng Nhập</h2>
+        <div id="msgBox"></div>
+        
+        <form autocomplete="off" onsubmit="loginXuly(); return false;">
+            <div class="input-group">
+                <input type="text" id="txtMaNV" placeholder=" ">
+                <label for="txtMaNV">Mã nhân viên</label>
+            </div>
+            
+            <div class="input-group has-btn">
+                <input type="password" id="txtMatKhau" placeholder=" ">
+                <label for="txtMatKhau">Mật khẩu</label>
+                
+                <button type="button" class="btn-toggle-pass" onclick="togglePassword('txtMatKhau', this)">
+                    <i class="fa-regular fa-eye"></i>
+                </button>
+            </div>
+            
+            <label class="remember-me">
+                <input type="checkbox" id="chkRemember">
+                Ghi nhớ thông tin tài khoản
+            </label>
+            
+            <button type="submit" id="btnLogin" class="btn-primary">Xác nhận</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="dangnhap.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đổi Mật Khẩu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style-base.css">
+    <link rel="stylesheet" href="style-auth.css">
+</head>
+<body>
+    
+    <div class="form-container">
+        <h2>Đổi Mật Khẩu</h2>
+        
+        <div id="msgBox"></div>
+
+        <div class="input-group">
+            <input type="number" id="txtMaNV" placeholder=" " required>
+            <label for="txtMaNV">Mã Nhân Viên</label>
+        </div>
+
+        <div class="input-group has-btn">
+            <input type="password" id="txtMatKhauCu" placeholder=" " required>
+            <label for="txtMatKhauCu">Mật Khẩu Hiện Tại</label>
+            <button type="button" class="btn-toggle-pass" id="btnToggleCu">
+                <i class="fa-regular fa-eye"></i>
+            </button>
+        </div>
+        
+        <div class="input-group has-btn">
+            <input type="password" id="txtMatKhauMoi" placeholder=" " required>
+            <label for="txtMatKhauMoi">Mật Khẩu Mới</label>
+            <button type="button" class="btn-toggle-pass" id="btnToggleMoi">
+                <i class="fa-regular fa-eye"></i>
+            </button>
+        </div>
+
+        <div class="input-group has-btn">
+            <input type="password" id="txtXacNhanMK" placeholder=" " required>
+            <label for="txtXacNhanMK">Xác Nhận Mật Khẩu Mới</label>
+            <button type="button" class="btn-toggle-pass" id="btnToggleXacNhan">
+                <i class="fa-regular fa-eye"></i>
+            </button>
+        </div>
+        
+        <div class="button-group">
+            <button class="btn-primary" id="btnDoiMatKhau">CẬP NHẬT</button>
+        </div>
+
+        <div class="divider">hoặc</div>
+
+        <a href="https://app.assets/trangchu.html" style="color: #0078d4; text-decoration: none; font-size: 14px; font-weight: 600;">
+            Quay lại Trang chủ
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="doimatkhau.js"></script>
+</body>
+</html>

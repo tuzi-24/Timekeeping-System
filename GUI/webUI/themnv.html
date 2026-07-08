@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm Nhân Viên</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style-base.css">
+    <link rel="stylesheet" href="style-dashboard.css">
+    <link rel="stylesheet" href="style-auth.css">
+    <style>
+        .form-box-custom {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 550px;
+            position: relative;
+            z-index: 1;
+        }
+        .title-custom {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .form-row {
+            margin-bottom: 16px;
+            text-align: left;
+        }
+        .form-row label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #4a5568;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="form-box-custom">
+        <div class="title-custom">
+            <i class="fa-solid fa-user-plus" style="color: #38a169;"></i> Thêm Nhân Viên Mới
+        </div>
+        <form id="frmThem" onsubmit="return false;">
+            <div class="form-row">
+                <label>Mã nhân viên (Hệ thống tự sinh):</label>
+                <input type="text" id="txtMaNV" class="input-search" style="background-color: #edf2f7; font-weight: bold; color: #2b6cb0;" disabled>
+            </div>
+            <div class="form-row">
+                <label>Họ và Tên:</label>
+                <input type="text" id="txtHoTen" class="input-search" placeholder="Nhập đầy đủ họ và tên..." required>
+            </div>
+            <div class="form-row">
+                <label>Phòng ban chỉ định:</label>
+                <select id="cboPhongBan" class="form-select" style="width: 100%;" required>
+                    <option value="">-- Chọn phòng ban --</option>
+                    <option value="Phòng Kỹ Thuật">Phòng Kỹ Thuật</option>
+                    <option value="Phòng Nhân Sự">Phòng Nhân Sự</option>
+                    <option value="Phòng Kinh Doanh">Phòng Kinh Doanh</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Chức vụ:</label>
+                <select id="cboChucVu" class="form-select" style="width: 100%;" required>
+                    <option value="">-- Chọn chức vụ --</option>
+                    <option value="Nhân viên">Nhân viên</option>
+                    <option value="Trưởng phòng">Trưởng phòng</option>
+                    <option value="Giám đốc">Giám đốc</option>
+                </select>
+            </div>
+            <div class="button-group" style="margin-top: 25px;">
+                <button type="button" class="btn-secondary" onclick="window.location.href='https://app.assets/danhsachnv.html'">Hủy bỏ</button>
+                <button type="submit" class="btn-primary" style="background-color: #38a169; box-shadow: 0 4px 12px rgba(56, 161, 105, 0.25);">Lưu nhân viên</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="themnv.js"></script>
+</body>
+</html>

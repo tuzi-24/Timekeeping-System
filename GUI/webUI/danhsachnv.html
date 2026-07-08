@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Nhân Viên</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style-base.css">
+    <link rel="stylesheet" href="style-auth.css">
+    <link rel="stylesheet" href="style-dashboard.css">
+    <style>
+        body {
+            display: block !important;
+            padding: 20px !important;
+            overflow-y: auto !important;
+        }
+        body::before {
+            filter: blur(8px);
+            opacity: 0.4;
+        }
+        .header-btn-group {
+            display: flex;
+            gap: 10px;
+        }
+        .search-filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 14px 18px;
+        }
+        .search-filter-bar label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #4a5568;
+            white-space: nowrap;
+        }
+        .search-filter-bar .form-select,
+        .search-filter-bar .input-search {
+            padding: 7px 12px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e0;
+            font-size: 14px;
+        }
+        .search-filter-bar .input-search {
+            min-width: 240px;
+        }
+        #divGroupPB {
+            display: none;
+            align-items: center;
+            gap: 8px;
+        }
+        .badge-role {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .badge-role.admin  { background: #fed7d7; color: #c53030; }
+        .badge-role.hr     { background: #bee3f8; color: #2b6cb0; }
+        .badge-role.manager{ background: #fefcbf; color: #744210; }
+        .badge-role.staff  { background: #e9d8fd; color: #553c9a; }
+        .action-buttons    { display: flex; gap: 8px; flex-wrap: wrap; }
+        .btn-action {
+            display: inline-flex; align-items: center; gap: 5px;
+            padding: 5px 12px; border: none; border-radius: 6px;
+            font-size: 13px; font-weight: 600; cursor: pointer; color: #fff;
+        }
+        .btn-action.edit     { background: #3182ce; }
+        .btn-action.register { background: #805ad5; }
+        .btn-action:hover    { opacity: 0.85; }
+    </style>
+</head>
+<body>
+    
+    <div class="pivot-container-fluid" style="position: relative; z-index: 1;">
+        <header class="header-wrapper">
+            <div class="header-title">
+                <h1 id="lblTieuDeDanhSach">Hệ Thống Quản Lý Nhân Sự</h1>
+                <p>Xem toàn bộ danh sách, cập nhật hồ sơ và đăng ký chế độ hành chính.</p>
+            </div>
+            <div class="header-btn-group">
+                <button id="btnQuayVeTrangChu" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 8px; height: 42px;">
+                    <i class="fa-solid fa-house"></i> Về trang chủ
+                </button>
+                <button id="btnThemNhanVienMoi" class="btn-secondary"
+                    style="background-color:#38a169;color:#fff;display:none;align-items:center;gap:8px;height:42px;">
+                    <i class="fa-solid fa-user-plus"></i> Thêm nhân viên mới
+                </button>
+            </div>
+        </header>
+
+        <!-- Thanh lọc -->
+        <div class="search-filter-bar">
+            <div id="divGroupPB" style="align-items:center;gap:8px;">
+                <label><i class="fa-solid fa-building" style="color:#0078d4;"></i> Phòng ban:</label>
+                <select id="selectFilterPhongBan" class="form-select" style="min-width:200px;"></select>
+            </div>
+            <label><i class="fa-solid fa-magnifying-glass" style="color:#718096;"></i></label>
+            <input type="text" id="txtSearchNhanVien" class="input-search" placeholder="Tìm theo Mã NV hoặc Họ tên...">
+        </div>
+
+        <main class="table-scroll-area">
+            <table class="pivot-table">
+                <thead>
+                    <tr>
+                        <th class="sticky-col-1">Mã NV</th>
+                        <th class="sticky-col-2">Nhân Viên</th>
+                        <th>Phòng Ban</th>
+                        <th>Chức Vụ / Quyền</th>
+                        <th>Trạng Thái Hôm Nay</th>
+                        <th style="min-width: 260px;">Chức Năng</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyDanhSachNhanVien">
+                    <tr>
+                        <td colspan="7" style="text-align:center;padding:30px;color:#718096;">
+                            <i class="fa-solid fa-spinner fa-spin"></i> Đang tải dữ liệu nhân viên...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="danhsachnv.js"></script>
+</body>
+</html>

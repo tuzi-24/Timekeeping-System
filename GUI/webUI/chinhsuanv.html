@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chỉnh Sửa / Xóa Nhân Viên</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style-base.css">
+    <link rel="stylesheet" href="style-dashboard.css">
+    <link rel="stylesheet" href="style-auth.css">
+    <style>
+        .form-box-custom {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 550px;
+            position: relative;
+            z-index: 1;
+        }
+        .form-row { margin-bottom: 16px; text-align: left; }
+        .form-row label { display: block; font-weight: 600; margin-bottom: 6px; color: #4a5568; font-size: 14px; }
+
+        .tab-bar-custom {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+        .tab-btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            background: #edf2f7;
+            color: #4a5568;
+            transition: all 0.2s;
+        }
+        .tab-btn.active-sua { background-color: #0078d4; color: white; }
+        .tab-btn.active-xoa { background-color: #e53e3e; color: white; }
+
+        /* Thanh thông báo tra cứu */
+        #boxPreview {
+            display: none;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid;
+            margin-bottom: 16px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Spinner tra cứu */
+        .spinner-inline {
+            width: 16px; height: 16px;
+            border: 2px solid #cbd5e0;
+            border-top-color: #0078d4;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 6px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+    <div class="form-box-custom">
+        <!-- Tab chọn chế độ -->
+        <div class="tab-bar-custom">
+            <div id="btnTabSua" class="tab-btn active-sua" onclick="doiCheDo('sua')">
+                <i class="fa-solid fa-user-pen"></i> Chỉnh sửa thông tin
+            </div>
+            <div id="btnTabXoa" class="tab-btn" onclick="doiCheDo('xoa')">
+                <i class="fa-solid fa-user-minus"></i> Xóa tài khoản
+            </div>
+        </div>
+
+        <!-- Thanh thông báo tra cứu -->
+        <div id="boxPreview"></div>
+
+        <form id="frmSuaXoa" onsubmit="return false;">
+            <div class="form-row">
+                <label>Nhập mã nhân viên thao tác:</label>
+                <input type="text" id="txtMaNV" class="input-search"
+                       placeholder="Nhập mã ví dụ: 1001, 1002..." required>
+            </div>
+            <div class="form-row">
+                <label>Họ và Tên:</label>
+                <input type="text" id="txtHoTen" class="input-search"
+                       placeholder="Họ tên nhân viên..." required disabled>
+            </div>
+            <div class="form-row">
+                <label>Phòng ban:</label>
+                <select id="cboPhongBan" class="form-select" style="width:100%;" required disabled>
+                    <option value="">-- Chọn phòng ban --</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Chức vụ công tác:</label>
+                <select id="cboChucVu" class="form-select" style="width:100%;" required disabled>
+                    <option value="">-- Chọn chức vụ --</option>
+                </select>
+            </div>
+
+            <div class="button-group" style="margin-top: 25px;">
+                <button type="button" class="btn-secondary"
+                        onclick="window.location.href='https://app.assets/danhsachnv.html'">
+                    Quay lại
+                </button>
+                <button type="submit" id="btnThucHien" class="btn-primary">
+                    Cập nhật hồ sơ
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="chinhsuanv.js"></script>
+</body>
+</html>

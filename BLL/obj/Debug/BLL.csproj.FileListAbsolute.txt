@@ -1,0 +1,11 @@
+D:\App Ngôn ngữ lập trình\App\BLL\bin\Debug\BLL.dll
+D:\App Ngôn ngữ lập trình\App\BLL\bin\Debug\BLL.pdb
+D:\App Ngôn ngữ lập trình\App\BLL\bin\Debug\DAL.dll
+D:\App Ngôn ngữ lập trình\App\BLL\bin\Debug\Entity.dll
+D:\App Ngôn ngữ lập trình\App\BLL\bin\Debug\DAL.pdb
+D:\App Ngôn ngữ lập trình\App\BLL\bin\Debug\Entity.pdb
+D:\App Ngôn ngữ lập trình\App\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\App Ngôn ngữ lập trình\App\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\App Ngôn ngữ lập trình\App\BLL\obj\Debug\BLL.csproj.Up2Date
+D:\App Ngôn ngữ lập trình\App\BLL\obj\Debug\BLL.dll
+D:\App Ngôn ngữ lập trình\App\BLL\obj\Debug\BLL.pdb

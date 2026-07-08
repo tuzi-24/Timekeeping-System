@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký Chế Độ Hành Chính</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="style-base.css">
+    <link rel="stylesheet" href="style-dashboard.css">
+    <link rel="stylesheet" href="style-auth.css">
+    <style>
+        .form-box-custom {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+            z-index: 1;
+        }
+        .form-row { margin-bottom: 16px; text-align: left; }
+        .form-row label { display: block; font-weight: 600; margin-bottom: 6px; color: #4a5568; font-size: 14px; }
+        
+        .tab-bar-custom {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 22px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+        .tab-btn {
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            background: #edf2f7;
+            color: #4a5568;
+            transition: all 0.2s;
+        }
+        .tab-btn.active { background-color: #805ad5; color: white; }
+        
+        /* CSS bổ sung để icon lịch của flatpickr hiển thị chuẩn */
+        .flatpickr-input {
+            background-color: #ffffff !important;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="form-box-custom">
+        <div class="tab-bar-custom">
+            <div id="tabOT" class="tab-btn active" onclick="chuyenNghiepVu('ot')"><i class="fa-solid fa-business-time"></i> Đăng ký OT</div>
+            <div id="tabWork" class="tab-btn" onclick="chuyenNghiepVu('work')"><i class="fa-solid fa-plane-departure"></i> Công Tác</div>
+            <div id="tabLeave" class="tab-btn" onclick="chuyenNghiepVu('leave')"><i class="fa-solid fa-calendar-times"></i> Nghỉ Phép</div>
+        </div>
+
+        <form id="frmCheDo" onsubmit="return false;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div class="form-row">
+                    <label>Mã nhân viên:</label>
+                    <input type="text" id="txtMaNV" class="input-search" placeholder="Mã NV..." required>
+                </div>
+                <div class="form-row">
+                    <label>Tên nhân viên:</label>
+                    <input type="text" id="txtHoTen" class="input-search" style="background-color: #edf2f7;" disabled>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div class="form-row">
+                    <label>Phòng ban:</label>
+                    <input type="text" id="cboPhongBan" class="input-search" style="background-color: #edf2f7;" disabled>
+                </div>
+                <div class="form-row">
+                    <label>Chức vụ:</label>
+                    <input type="text" id="cboChucVu" class="input-search" style="background-color: #edf2f7;" disabled>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+                <div class="form-row">
+                    <label id="lblTuNgay">Từ ngày (dd/MM/yyyy):</label>
+                    <input type="text" id="dateTu" class="input-search" placeholder="Chọn ngày..." required>
+                </div>
+                <div class="form-row" id="rowDenNgay">
+                    <label>Đến ngày (dd/MM/yyyy):</label>
+                    <input type="text" id="dateDen" class="input-search" placeholder="Chọn ngày...">
+                </div>
+            </div>
+
+            <div class="form-row" style="margin-top: 10px;">
+                <label id="lblLyDo">Lý do xin phê duyệt:</label>
+                <textarea id="txtLyDo" class="input-search" rows="3" placeholder="Nội dung giải trình chi tiết..." style="height: auto; padding: 10px;" required></textarea>
+            </div>
+
+            <div class="button-group" style="margin-top: 25px;">
+                <button type="button" class="btn-secondary" onclick="window.location.href='https://app.assets/danhsachnv.html'">Hủy bỏ</button>
+                <button type="submit" class="btn-primary" style="background-color: #805ad5; box-shadow: 0 4px 12px rgba(128, 90, 213, 0.25);">Xác nhận</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="script.js"></script>
+    <script src="dangkychedo.js"></script>
+</body>
+</html>

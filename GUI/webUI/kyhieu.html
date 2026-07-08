@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng Ký Hiệu</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style-base.css">
+    <link rel="stylesheet" href="style-auth.css">
+    <link rel="stylesheet" href="style-dashboard.css">
+</head>
+<body>
+    
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i class="fa-solid fa-tags"></i>
+                <span>HR Timekeeping</span>
+            </div>
+            
+           <ul class="sidebar-menu">
+                <li class="menu-item">
+                    <a href="https://app.assets/trangchu.html"><i class="fa-solid fa-chart-pie"></i>Trang tổng quan</a>
+                </li>
+                <li class="menu-item">
+                    <a href="https://app.assets/lichsucanhan.html"><i class="fa-solid fa-fingerprint"></i>Lịch sử cá nhân</a>
+                </li>
+                <li class="menu-item id-admin-view" style="display: none;">
+                    <a href="https://app.assets/danhsachnv.html"><i class="fa-solid fa-users"></i>Danh sách nhân viên</a>
+                </li>
+                <li class="menu-item id-admin-view" style="display: none;">
+                    <a href="https://app.assets/xemtoanbo.html"><i class="fa-solid fa-calendar-days"></i>Xem toàn bộ công</a>
+                </li>
+                <li class="menu-item active">
+                    <a href="#"><i class="fa-solid fa-clock-rotate-left"></i>Bảng ký hiệu công</a>
+                </li>
+                <li class="menu-item">
+                    <a href="https://app.assets/doimatkhau.html"><i class="fa-solid fa-key"></i>Đổi mật khẩu</a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <button class="btn-secondary" id="btnDangXuat" style="padding: 10px; margin: 0;">
+                    <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            
+            <header class="content-header">
+                <div class="user-welcome">
+                    <h1>Danh Mục Ký Hiệu Chấm Công</h1>
+                    <p>Bảng tra cứu quy chuẩn ký hiệu tính công và quy đổi hệ số lương của công ty.</p>
+                </div>
+            </header>
+
+            <section class="data-section margin-top-data">
+                <div id="containerGioChuan" style="display: flex; align-items: center; justify-content: space-between; background: #ffffff; padding: 15px 20px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <span style="font-size: 15px; font-weight: 700; color: #2d3748;"><i class="fa-solid fa-business-time" style="color: #ed8936; margin-right: 6px;"></i> Giờ làm việc chuẩn:</span>
+                        
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <label style="font-size: 13px; color: #718096;">Giờ vào:</label>
+                            <input type="text" id="txtGioVaoChuan" value="08:00" readonly style="width: 70px; text-align: center; padding: 6px; border: 1px solid #cbd5e0; border-radius: 6px; font-size: 14px; font-weight: bold; background-color: #f7fafc; color: #4a5568; transition: all 0.2s;">
+                        </div>
+
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <label style="font-size: 13px; color: #718096;">Giờ ra:</label>
+                            <input type="text" id="txtGioRaChuan" value="17:00" readonly style="width: 70px; text-align: center; padding: 6px; border: 1px solid #cbd5e0; border-radius: 6px; font-size: 14px; font-weight: bold; background-color: #f7fafc; color: #4a5568; transition: all 0.2s;">
+                        </div>
+                    </div>
+                    <div id="areaHanhDongGioChuan" style="display: none;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <button id="btnThaoTacGioChuan" class="btn-action edit" style="padding: 8px 16px; font-size: 13px; font-weight: 600; margin: 0; min-width: 80px;">
+                                <i class="fa-solid fa-pen-to-square"></i> Sửa
+                            </button>
+                            <button id="btnHuyGioChuan" class="btn-action" style="display:none; padding: 8px 14px; font-size: 13px; font-weight: 600; margin: 0; background-color: #718096; color: #fff; border: none; border-radius: 6px; cursor: pointer; align-items: center; gap: 5px;">
+                                <i class="fa-solid fa-xmark"></i> Hủy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th class="col-width-center">Mã ký hiệu</th>
+                            <th>Tên ý nghĩa ký hiệu</th>
+                            <th class="col-width-right">Quy đổi ngày công</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableKyHieu">
+                        <tr>
+                            <td colspan="3" class="padding-loading">Đang tải danh mục ký hiệu...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="kyhieu.js"></script>
+</body>
+</html>
