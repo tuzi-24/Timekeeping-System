@@ -1,9 +1,0 @@
-D:\App Ngôn ngữ lập trình\App\DAL\bin\Debug\DAL.dll
-D:\App Ngôn ngữ lập trình\App\DAL\bin\Debug\DAL.pdb
-D:\App Ngôn ngữ lập trình\App\DAL\bin\Debug\Entity.dll
-D:\App Ngôn ngữ lập trình\App\DAL\bin\Debug\Entity.pdb
-D:\App Ngôn ngữ lập trình\App\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
-D:\App Ngôn ngữ lập trình\App\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
-D:\App Ngôn ngữ lập trình\App\DAL\obj\Debug\DAL.csproj.Up2Date
-D:\App Ngôn ngữ lập trình\App\DAL\obj\Debug\DAL.dll
-D:\App Ngôn ngữ lập trình\App\DAL\obj\Debug\DAL.pdb
